@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article 04 | Yugal</title>
+    <style>
+        :root {
+            --paper: #f4fffc;
+            --ink: #12383a;
+            --accent: #2f9ca1;
+            --soft: #d7f3f4;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            min-height: 100vh;
+            padding: 2rem;
+            font-family: Georgia, "Times New Roman", serif;
+            background: linear-gradient(180deg, #ecfffd 0%, #b9ece8 100%);
+            color: var(--ink);
+        }
+
+        main {
+            max-width: 52rem;
+            margin: 0 auto;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            background: rgba(244, 255, 252, 0.84);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 1.2rem 2.6rem rgba(25, 91, 97, 0.12);
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        .eyebrow { font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: #2c7377; }
+        h1 { margin-top: 0.7rem; font-size: clamp(2rem, 5vw, 3.6rem); }
+        .meta { margin-top: 0.75rem; color: #3d7174; }
+        article { margin-top: 1.6rem; line-height: 1.8; font-size: 1.06rem; }
+        article p + p { margin-top: 1rem; }
+        .note { margin-top: 1.8rem; padding: 1rem 1.1rem; border-left: 4px solid var(--accent); border-radius: 0.8rem; background: var(--soft); }
+    </style>
+</head>
+<body>
+    <main>
+        <a href="./index.html">Back to home</a>
+        <p class="eyebrow">Yugal's Blog</p>
+        <h1>Small Lessons From Daily Work</h1>
+        <p class="meta">Draft article template by Yugal</p>
+        <article>
+            <p>Some of the best writing comes from details that seem too small to matter at first. A tiny workflow change, a quick fix, or one surprising insight can become a strong post.</p>
+            <p>This page is a good place for short-form writing: compact, useful, and honest about what you are learning right now.</p>
+            <p>That style often feels more alive than trying to sound overly formal or finished.</p>
+        </article>
+        <div class="note">Template tip: if you prefer, these pages can later be turned into one longer blog feed with separate posts.</div>
+    </main>
+</body>
+</html>

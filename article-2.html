@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article 02 | Yugal</title>
+    <style>
+        :root {
+            --paper: #fffaf1;
+            --ink: #3d250d;
+            --accent: #d68b2f;
+            --soft: #fde8bf;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            min-height: 100vh;
+            padding: 2rem;
+            font-family: Georgia, "Times New Roman", serif;
+            background: linear-gradient(180deg, #fff3d6 0%, #ffdca1 100%);
+            color: var(--ink);
+        }
+
+        main {
+            max-width: 52rem;
+            margin: 0 auto;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            background: rgba(255, 250, 241, 0.84);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 1.2rem 2.6rem rgba(104, 67, 17, 0.12);
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        .eyebrow { font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: #8b6326; }
+        h1 { margin-top: 0.7rem; font-size: clamp(2rem, 5vw, 3.6rem); }
+        .meta { margin-top: 0.75rem; color: #7b5925; }
+        article { margin-top: 1.6rem; line-height: 1.8; font-size: 1.06rem; }
+        article p + p { margin-top: 1rem; }
+        .note { margin-top: 1.8rem; padding: 1rem 1.1rem; border-left: 4px solid var(--accent); border-radius: 0.8rem; background: var(--soft); }
+    </style>
+</head>
+<body>
+    <main>
+        <a href="./index.html">Back to home</a>
+        <p class="eyebrow">Yugal's Blog</p>
+        <h1>Thoughts From the Workshop Floor</h1>
+        <p class="meta">Draft article template by Yugal</p>
+        <article>
+            <p>This page is ready for a practical story, a lesson from a project, or a reflection on the work you do every day.</p>
+            <p>A good blog does not need perfect wording from day one. It needs your perspective. Start with what happened, what you noticed, and what changed in the way you think.</p>
+            <p>If you want, this can become a journal of progress as your website and writing style evolve together.</p>
+        </article>
+        <div class="note">Template tip: each article page can have its own accent colors without changing the homepage.</div>
+    </main>
+</body>
+</html>

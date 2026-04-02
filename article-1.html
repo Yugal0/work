@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article 01 | Yugal</title>
+    <style>
+        :root {
+            --paper: #fffaf3;
+            --ink: #402013;
+            --accent: #ef7f62;
+            --soft: #f8d9cc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            padding: 2rem;
+            font-family: Georgia, "Times New Roman", serif;
+            background: linear-gradient(180deg, #fff4ea 0%, #ffe3d2 100%);
+            color: var(--ink);
+        }
+
+        main {
+            max-width: 52rem;
+            margin: 0 auto;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            background: rgba(255, 250, 243, 0.82);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 1.2rem 2.6rem rgba(104, 48, 17, 0.12);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .eyebrow {
+            font-size: 0.82rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #95553d;
+        }
+
+        h1 {
+            margin-top: 0.7rem;
+            font-size: clamp(2rem, 5vw, 3.6rem);
+        }
+
+        .meta {
+            margin-top: 0.75rem;
+            color: #7a4630;
+        }
+
+        article {
+            margin-top: 1.6rem;
+            line-height: 1.8;
+            font-size: 1.06rem;
+        }
+
+        article p + p {
+            margin-top: 1rem;
+        }
+
+        .note {
+            margin-top: 1.8rem;
+            padding: 1rem 1.1rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 0.8rem;
+            background: var(--soft);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <a href="./index.html">Back to home</a>
+        <p class="eyebrow">Yugal's Blog</p>
+        <h1>Notes on Building With Motion</h1>
+        <p class="meta">Draft article template by Yugal</p>
+        <article>
+            <p>This is a starter article page you can replace with your real writing. The goal is to give your homepage something meaningful to link to while your blog grows.</p>
+            <p>When you are ready, swap this text for your own story, idea, tutorial, or reflection. Keep the title, update the paragraphs, and the circle on the homepage will still link here.</p>
+            <p>You can use this first article to talk about why you like motion, websites, code experiments, or anything else that feels like your voice.</p>
+        </article>
+        <div class="note">Template tip: edit the title, meta line, and paragraphs only if you want a quick publish without changing layout.</div>
+    </main>
+</body>
+</html>
