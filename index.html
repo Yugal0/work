@@ -3,82 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Palette Love</title>
+    <title>Ribbon Current</title>
     <style>
+        :root {
+            color-scheme: light;
+            --sky-top: #fff7ef;
+            --sky-mid: #ffe7d6;
+            --sky-bottom: #f8c9a7;
+            --shadow: rgba(77, 24, 0, 0.18);
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
             overflow: hidden;
+            font-family: Georgia, "Times New Roman", serif;
+            background:
+                radial-gradient(circle at top, rgba(255, 255, 255, 0.8), transparent 35%),
+                linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 45%, var(--sky-bottom) 100%);
+        }
+
+        .scene {
+            position: relative;
             height: 100vh;
             width: 100vw;
-            background: #ffffff;
+            overflow: hidden;
+            isolation: isolate;
         }
 
-        .stripes-container {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
+        .glow {
+            position: absolute;
+            inset: auto;
+            border-radius: 999px;
+            filter: blur(24px);
+            opacity: 0.55;
+            pointer-events: none;
         }
 
-        .stripe {
-            flex: 1;
-            width: 100%;
-            transition: flex 0.5s ease;
+        .glow-left {
+            width: 26rem;
+            height: 26rem;
+            left: -6rem;
+            top: -6rem;
+            background: rgba(255, 255, 255, 0.95);
         }
 
-        .stripe:hover {
-            flex: 1.5;
+        .glow-right {
+            width: 22rem;
+            height: 22rem;
+            right: -8rem;
+            bottom: -8rem;
+            background: rgba(255, 173, 120, 0.32);
         }
 
-        .stripe-1 {
-            background: linear-gradient(90deg, #FF6B6B 0%, #FF8E8E 50%, #FFA6A6 100%);
+        .ribbon-stack {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            grid-template-rows: repeat(8, 1fr);
         }
 
-        .stripe-2 {
-            background: linear-gradient(90deg, #F7971E 0%, #FFD200 50%, #FFE566 100%);
+        .ribbon {
+            position: relative;
+            overflow: visible;
+            filter: drop-shadow(0 0.85rem 1rem var(--shadow));
         }
 
-        .stripe-3 {
-            background: linear-gradient(90deg, #56AB2F 0%, #A8E063 50%, #C5F084 100%);
+        .ribbon::before,
+        .ribbon::after {
+            content: "";
+            position: absolute;
+            left: -8vw;
+            width: 116vw;
+            height: 140%;
+            top: -20%;
+            border-radius: 50% / 42%;
+            transform-origin: center;
         }
 
-        .stripe-4 {
-            background: linear-gradient(90deg, #4ECDC4 0%, #44A08D 50%, #6BC7BE 100%);
+        .ribbon::before {
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.03) 42%, rgba(0, 0, 0, 0.14) 100%),
+                var(--ribbon-gradient);
+            animation:
+                crest var(--duration) ease-in-out infinite,
+                drift calc(var(--duration) * 1.5) ease-in-out infinite;
         }
 
-        .stripe-5 {
-            background: linear-gradient(90deg, #667EEA 0%, #764BA2 50%, #8B6AC7 100%);
+        .ribbon::after {
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.72), transparent 45%, rgba(255, 255, 255, 0.08) 100%);
+            mix-blend-mode: screen;
+            opacity: 0.66;
+            animation:
+                crestHighlight calc(var(--duration) * 0.92) ease-in-out infinite,
+                shimmer calc(var(--duration) * 1.7) linear infinite;
         }
 
-        .stripe-6 {
-            background: linear-gradient(90deg, #A770EF 0%, #CF8BF3 50%, #D9A5F6 100%);
+        .ribbon-1 { --ribbon-gradient: linear-gradient(90deg, #ff6b6b 0%, #ff8e8e 50%, #ffb39a 100%); --duration: 8.5s; }
+        .ribbon-2 { --ribbon-gradient: linear-gradient(90deg, #f48c06 0%, #ffba08 48%, #ffd65a 100%); --duration: 9.3s; }
+        .ribbon-3 { --ribbon-gradient: linear-gradient(90deg, #4caf50 0%, #84cc5f 46%, #b8e986 100%); --duration: 8.8s; }
+        .ribbon-4 { --ribbon-gradient: linear-gradient(90deg, #2ec4b6 0%, #38a3a5 50%, #82d8c8 100%); --duration: 10s; }
+        .ribbon-5 { --ribbon-gradient: linear-gradient(90deg, #4d6cfa 0%, #6f5ef5 45%, #9a7cf6 100%); --duration: 8.9s; }
+        .ribbon-6 { --ribbon-gradient: linear-gradient(90deg, #8a5cf6 0%, #be7bff 50%, #d5a0ff 100%); --duration: 9.8s; }
+        .ribbon-7 { --ribbon-gradient: linear-gradient(90deg, #f15bb5 0%, #d2649a 48%, #f3a6c5 100%); --duration: 9.1s; }
+        .ribbon-8 { --ribbon-gradient: linear-gradient(90deg, #ff4d6d 0%, #ff758f 48%, #ff9fb2 100%); --duration: 8.7s; }
+
+        .overlay {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: min(34rem, calc(100vw - 2rem));
+            padding: 1.4rem 1.6rem;
+            text-align: center;
+            color: rgba(74, 28, 9, 0.7);
+            background: rgba(255, 251, 247, 0.22);
+            border: 1px solid rgba(255, 255, 255, 0.38);
+            border-radius: 1.25rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1rem 2.4rem rgba(101, 51, 17, 0.1);
         }
 
-        .stripe-7 {
-            background: linear-gradient(90deg, #FF6B9D 0%, #C06C84 50%, #D98BA6 100%);
+        .overlay h1 {
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
-        .stripe-8 {
-            background: linear-gradient(90deg, #F093FB 0%, #F5576C 50%, #F77B8E 100%);
+        .overlay p {
+            margin-top: 0.65rem;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            line-height: 1.6;
+        }
+
+        @keyframes crest {
+            0%, 100% {
+                transform: translateX(-2vw) translateY(0%) scaleY(1) rotate(-0.6deg) skewX(-6deg);
+            }
+            25% {
+                transform: translateX(1vw) translateY(-10%) scaleY(1.18) rotate(0.8deg) skewX(5deg);
+            }
+            50% {
+                transform: translateX(-1vw) translateY(8%) scaleY(0.9) rotate(-0.9deg) skewX(-7deg);
+            }
+            75% {
+                transform: translateX(2vw) translateY(-7%) scaleY(1.12) rotate(0.65deg) skewX(6deg);
+            }
+        }
+
+        @keyframes drift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes crestHighlight {
+            0%, 100% {
+                transform: translateX(-1vw) translateY(3%) scaleY(0.94) rotate(0deg);
+                opacity: 0.55;
+            }
+            50% {
+                transform: translateX(2vw) translateY(-11%) scaleY(1.14) rotate(0.4deg);
+                opacity: 0.78;
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 180% 0%;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .ribbon::before,
+            .ribbon::after {
+                left: -12vw;
+                width: 124vw;
+                height: 160%;
+                top: -30%;
+            }
+
+            .overlay {
+                padding: 1rem 1.15rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="stripes-container">
-        <div class="stripe stripe-1"></div>
-        <div class="stripe stripe-2"></div>
-        <div class="stripe stripe-3"></div>
-        <div class="stripe stripe-4"></div>
-        <div class="stripe stripe-5"></div>
-        <div class="stripe stripe-6"></div>
-        <div class="stripe stripe-7"></div>
-        <div class="stripe stripe-8"></div>
-    </div>
+    <main class="scene">
+        <div class="glow glow-left"></div>
+        <div class="glow glow-right"></div>
+
+        <section class="ribbon-stack" aria-label="Animated ribbon artwork">
+            <div class="ribbon ribbon-1"></div>
+            <div class="ribbon ribbon-2"></div>
+            <div class="ribbon ribbon-3"></div>
+            <div class="ribbon ribbon-4"></div>
+            <div class="ribbon ribbon-5"></div>
+            <div class="ribbon ribbon-6"></div>
+            <div class="ribbon ribbon-7"></div>
+            <div class="ribbon ribbon-8"></div>
+        </section>
+
+        <section class="overlay">
+            <h1>Ribbon Current</h1>
+            <p>Soft bands now rise, dip, and shimmer like fabric moving through air instead of staying flat on the page.</p>
+        </section>
+    </main>
 </body>
 </html>
