@@ -176,7 +176,7 @@
             clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 50%);
             text-decoration: none;
             color: #4c1f06;
-            transition: transform 0.3s ease, filter 0.3s ease;
+            transition: filter 0.25s ease;
             z-index: 1;
         }
 
@@ -188,37 +188,43 @@
                 linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.02) 55%, rgba(110, 45, 9, 0.12) 100%),
                 var(--segment-bg);
             opacity: 0.96;
+            transition: opacity 0.25s ease, box-shadow 0.25s ease;
         }
 
         .segment:hover {
-            transform: scale(1.03);
             filter: brightness(1.05);
-            z-index: 2;
+        }
+
+        .segment:hover::before,
+        .segment:focus-visible::before {
+            opacity: 1;
+            box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.5);
         }
 
         .segment-content {
             position: absolute;
-            left: 71%;
-            top: 26%;
-            width: 8.4rem;
+            left: 69%;
+            top: 23%;
+            width: 5.2rem;
             transform: translate(-50%, -50%);
             text-align: center;
-            padding: 0.4rem;
+            padding: 0.2rem;
             z-index: 2;
         }
 
         .segment strong {
             display: block;
-            font-size: clamp(0.8rem, 1.45vw, 1rem);
+            font-size: clamp(0.72rem, 1.15vw, 0.86rem);
             letter-spacing: 0.04em;
             text-transform: uppercase;
+            line-height: 1.15;
         }
 
         .segment span {
             display: block;
-            margin-top: 0.35rem;
-            font-size: clamp(0.72rem, 1.18vw, 0.88rem);
-            line-height: 1.35;
+            margin-top: 0.22rem;
+            font-size: clamp(0.62rem, 0.95vw, 0.74rem);
+            line-height: 1.2;
             opacity: 0.8;
         }
 
@@ -325,9 +331,17 @@
             }
 
             .segment-content {
-                width: 5.7rem;
-                left: 72%;
-                top: 24%;
+                width: 4.5rem;
+                left: 68%;
+                top: 22%;
+            }
+
+            .segment strong {
+                font-size: 0.66rem;
+            }
+
+            .segment span {
+                font-size: 0.57rem;
             }
         }
     </style>
@@ -353,31 +367,31 @@
                 <a class="segment segment-1" href="./article-1.html">
                     <div class="segment-content">
                         <strong>Article 01</strong>
-                        <span>Notes on building with motion</span>
+                        <span>Motion notes</span>
                     </div>
                 </a>
                 <a class="segment segment-2" href="./article-2.html">
                     <div class="segment-content">
                         <strong>Article 02</strong>
-                        <span>Thoughts from the workshop floor</span>
+                        <span>Workshop thoughts</span>
                     </div>
                 </a>
                 <a class="segment segment-3" href="./article-3.html">
                     <div class="segment-content">
                         <strong>Article 03</strong>
-                        <span>Design ideas worth keeping</span>
+                        <span>Design ideas</span>
                     </div>
                 </a>
                 <a class="segment segment-4" href="./article-4.html">
                     <div class="segment-content">
                         <strong>Article 04</strong>
-                        <span>Small lessons from daily work</span>
+                        <span>Daily lessons</span>
                     </div>
                 </a>
                 <a class="segment segment-5" href="./article-5.html">
                     <div class="segment-content">
                         <strong>Article 05</strong>
-                        <span>What I want this blog to become</span>
+                        <span>Blog vision</span>
                     </div>
                 </a>
 
